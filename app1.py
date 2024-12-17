@@ -6,17 +6,17 @@ app = Flask(__name__)
 def index():
     return render_template('forms.html')
 
-# Ruta para procesar el formulario
-@app.route("/submit", methods=['GET', 'POST'])
+@app.route("/submit", methods=['POST'])
 def submit():
     if request.method == 'POST':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        age = request.form['age']
-        university = request.form['university']
+        marca = request.form['marca']
+        modelo = request.form['modelo']
+        precio = request.form['precio']
         return f"""
-            <h1>¡Hola, {first_name} {last_name}!</h1>
-            <p>Tienes {age} años y estudias en {university}.</p>
+            <h1>Celular Registrado</h1>
+            <p>Marca: {marca}</p>
+            <p>Modelo: {modelo}</p>
+            <p>Precio: {precio}</p>
         """
     return "<p>Método no permitido</p>"
 
